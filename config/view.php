@@ -28,6 +28,6 @@ return [
     |
     */
 
-    'compiled' => storage_path(),
+    'compiled' => env('VIEW_COMPILED_PATH', '/tmp'),
 
 ];
