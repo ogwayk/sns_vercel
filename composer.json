@@ -52,7 +52,8 @@
             "@php artisan key:generate --ansi"
         ],
         "cache": [
-            "rm -f bootstrap/cache/*.php"
+            "chmod -R 755 bootstrap\/cache",
+            "php artisan cache:clear"
         ]
     },
     "extra": {
