@@ -1,16 +1,17 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "api/index.php",
-            "use": "vercel-php@0.6.0"
-        },
-        {
-            "src": "public/**",
-            "use": "vercel-php@0.6.0"
-        }
+    "regions": [
+        "hnd1"
     ],
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.2"
+        }
+    },
     "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/"
+        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
@@ -25,6 +26,7 @@
         "APP_ROUTES_CACHE": "/tmp/routes.php",
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "CACHE_DRIVER": "array",
+        "CACHE_STORE": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "VIEW_COMPILED_PATH": "/tmp"
